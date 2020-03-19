@@ -1,5 +1,10 @@
 # YesApi小白接口 - 微信小程序JS SDK
 
+## 接口和后台
+
++ 查看[小白接口大全](http://api.yesapi.cn/docs.php)  
++ 进入[我的微信小程序管理后台](http://open.yesapi.cn/wxmini/)
+
 ## 下载
 将当前项目里面的YesApi目录，下载到你的微信小程序项目中，放到utils目录内。
 

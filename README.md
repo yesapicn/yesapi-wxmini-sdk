@@ -26,7 +26,7 @@ App({
     uuid: null,
     token: null,
     yesapi: { // 小白开放平台配置，查看：http://open.yesapi.cn/?r=App/Mine
-      api_host: '换成你的', // 接口域名
+      api_host: '换成你的', // 接口域名，特别注意，需要使用https协议
       app_key: '换成你的', // app_key
       app_secrect: '换成你的' // app_secrect
     }

@@ -90,7 +90,62 @@ function request(service, params, onSuccess, onError) {
 网络请求：  
 ![](http://cdn7.okayapi.com/yesyesapi_20200319155614_78460ec48ec53e7c457dec2dbfff8d5f.png)
 
+## 常用接口
 
+微信小程序用户登录：  
+```
+  onLogin: function (iv, encryptedData) {
+    wx.login({ //重新登录
+      success(res) {
+        if (res.code) {
+          //发起网络请求
+          //console.log('开始登录', res.code, iv, encryptedData)
+
+          yesapi.requestAppWxmini_UserLogin(res.code, iv, encryptedData, function (res) {
+            console.log('微信用户登录：', res)
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+  },
+```
+上传图片：  
+```
+  chooseImageAndUpload: function () {
+    wx.chooseImage({
+      count: 1,
+      success: function (res) {
+        yesapi.requestAppCDNUploadImg(res.tempFilePaths[0], function (res) {
+          console.log('图片上传完毕：', res);
+        })
+      }
+    })
+  },
+```
+上传文件：  
+```
+  chooseFileAndUpload: function () {
+    wx.chooseMessageFile({
+      count: 1,
+      success: function (res) {
+        console.log('选择的文件：', res)
+        yesapi.requestAppCDNUploadOffice(res.tempFiles[0].path, function (res) {
+          console.log('文件上传完毕：', res);
+        })
+      }
+    })
+  },
+```
+
+获取首页轮播图：  
+```
+    // 轮播图
+    yesapi.requestAppWxmini_AdverGetAdList(10, function (res) {
+        console.log('首页轮播图：', res);
+    })
+```
 ## 关注我们
 
 扫码关注小白开放平台微信公众号

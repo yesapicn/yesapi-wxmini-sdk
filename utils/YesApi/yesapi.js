@@ -135,6 +135,67 @@ var yesapi = {
     this.request('App.Hello.World', { name: name }, onSuccess, onError);
   },
 
+
+  /** ----------------- 上传图片到素材库 ----------------- */
+
+  requestAppCDNUploadImg: function (imgFilePath, onSuccess, onError) {
+    let formData = {
+      s: 'App.CDN.UploadImg',
+    }
+    formData['sign'] = this.enryptData(formData)
+
+    // 读取配置
+    const YESAPI_API_HOST = app.globalData.yesapi.api_host
+
+    // 请求链接
+    let url = YESAPI_API_HOST + '/?s=' + formData.s
+
+    wx.uploadFile({
+      header: {
+        'Accept': 'application/json'
+      },
+      url: url,
+      filePath: imgFilePath,
+      name: 'file',
+      formData: formData,
+      success: (res) => {
+        typeof onSuccess == 'function' && onSuccess(res.data)
+      },
+      fail: (err) => {
+        typeof onError == "function" && onError(err);
+      }
+    })
+  },
+
+  requestAppCDNUploadOffice: function (filePath, onSuccess, onError) {
+    let formData = {
+      s: 'App.CDN.UploadOffice',
+    }
+    formData['sign'] = this.enryptData(formData)
+
+    // 读取配置
+    const YESAPI_API_HOST = app.globalData.yesapi.api_host
+
+    // 请求链接
+    let url = YESAPI_API_HOST + '/?s=' + formData.s
+
+    wx.uploadFile({
+      header: {
+        'Accept': 'application/json'
+      },
+      url: url,
+      filePath: filePath,
+      name: 'file',
+      formData: formData,
+      success: (res) => {
+        typeof onSuccess == 'function' && onSuccess(res.data)
+      },
+      fail: (err) => {
+        typeof onError == "function" && onError(err);
+      }
+    })
+  },
+
   /** ----------------- 内部方法 ----------------- */
 
   /**

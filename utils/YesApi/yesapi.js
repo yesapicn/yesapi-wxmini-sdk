@@ -64,6 +64,18 @@ var yesapi = {
     this.request('App.Wxmini_User.GetBindInfo', { openid: openid }, onSuccess, onError)
   },
 
+  /** ----------------- 支付与订单 ----------------- */
+
+  requestAppWxmini_PayCreateOrde(trade_type, body, total_fee, openid, params, onSuccess, onError) {
+    params = params || {}
+    params['trade_type'] = trade_type
+    params['body'] = body
+    params['total_fee'] = total_fee
+    params['openid'] = openid
+
+    this.request('App.Wxmini_Pay.CreateOrder', params, onSuccess, onError)
+  },
+
   /** ----------------- 店铺 ----------------- */
 
   /**

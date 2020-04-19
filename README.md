@@ -5,6 +5,10 @@
 + 查看[小白接口大全](http://api.yesapi.cn/docs.php)  
 + 进入[我的微信小程序管理后台](http://open.yesapi.cn/wxmini/)
 
+在线管理后台：  
+![](http://cdn7.okayapi.com/yesyesapi_20200324185551_0aa94197d64ac2adfd524723f5fdc14e.png)
+
+
 ## 下载
 将当前项目里面的YesApi目录，下载到你的微信小程序项目中，放到utils目录内。
 

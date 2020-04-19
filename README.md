@@ -70,6 +70,12 @@ function request(service, params, onSuccess, onError) {
  + data：数据部分，根据不同接口而定
  + msg：提示信息
  
+## 引入文件
+在你需要调用接口的地方，引入文件，路径根据需要适当调整位置。  
+```
+import yesapi from '../../utils/YesApi/yesapi.js';
+```
+
 ## 请求示例
 
 ```
